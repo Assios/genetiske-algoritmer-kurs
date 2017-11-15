@@ -41,13 +41,13 @@ def mutate(copies):
 
 
 def fittest(copies, target):
-    error = 0
+    best_score = 0
     best_string = None
 
     for copy in copies:
         score = fitness(copy, target)
-        if score > error:
-            error = score
+        if score > best_score:
+            best_score = score
             best_string = copy                            
 
     return best_string     
@@ -56,11 +56,13 @@ def fittest(copies, target):
 def main():
 	best_string = random_string(28)
 	target_string = "METHINKS IT IS LIKE A WEASEL"
+	generation = 0
 
 	while best_string != target_string:
+		generation+=1
 		copies = [best_string for _ in range(100)]
 		mutations = mutate(copies)
 		best_string = fittest(mutations, target_string)
-		print best_string
+		print "Generation %i: %s" % (generation, best_string)
 
 main()
