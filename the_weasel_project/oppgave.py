@@ -3,7 +3,6 @@
 
 import random
 import string
-import itertools
 
 """
 Oppgave:
@@ -16,7 +15,6 @@ Oppgave:
 """
 
 characters = string.ascii_uppercase + " "
-
 
 def random_string(n):
 	return "".join(random.choice(characters) for _ in range(n))
