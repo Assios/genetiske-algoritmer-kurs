@@ -1,1 +1,3 @@
-# evolution
+# Genetiske algoritmer
+
+Oppgaver til maskinlæringsfagruppemøte

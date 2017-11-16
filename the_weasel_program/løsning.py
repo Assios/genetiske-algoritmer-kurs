@@ -31,7 +31,7 @@ def fitness(string, target):
 def mutate(copies):
 	for i in range(len(copies)):
 		for j in range(len(copies[i])):
-			if random.random() < 0.05:
+			if random.random() < 0.00001:
 				new_gene = characters[random.randint(0, len(characters)-1)]
 				s = list(copies[i])
 				s[j] = new_gene

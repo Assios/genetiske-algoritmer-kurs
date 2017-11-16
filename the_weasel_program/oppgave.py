@@ -30,14 +30,15 @@ def fitness(string, target):
 
 def mutate(copies):
 	"""
-	Ta en liste av kopier
-	For hvert tegn i hver av kopiene, med en sannsynlighet på 5%, bytt tegnet med et annet tilfeldig tegn.
+	Tar inn en liste av kopier
+	For hvert tegn i hver av kopiene, bytt ut tegnet med et annet tilfeldig tegn med en sannsynlighet på 5%
 	"""
 	return copies
 
 
 def fittest(copies):
 	"""
+	Tar inn en liste av kopier
 	Returner strengen med høyest fitness
 	"""                      
 
