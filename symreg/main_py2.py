@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
+# coding: latin1
 
 import math
 import random
-import statistics
+
+def mean(arr):
+	return sum(arr)/len(arr)
 
 class Operation:
 	def __init__(self, name, func):
@@ -65,19 +68,20 @@ def generate_initial_trees(variables, n, max_depth=4):
 	return [generate_random_tree(variables, max_depth) for i in range(n)]
 
 def chunk(li, chunk_count):
-    for i in range(0, len(li), chunk_count):
-        yield li[i:i + chunk_count]
+    for i in range(0, len(li), int(chunk_count)):
+        yield li[i:i + int(chunk_count)]
 
 def calculate_score(y_true, y_pred):
-	return statistics.mean([abs(y_true[i] - y_pred[i]) for i in range(len(y_true))])
+	return mean([abs(y_true[i] - y_pred[i]) for i in range(len(y_true))])
 
 def run_tournament(X, y, trees):
-	best_tree = (0, math.inf)
+	best_tree = (0, float('inf'))
 	for i, tree in enumerate(trees):
 		evaluation = tree.evaluate(X)
 		score = calculate_score(y, evaluation)
 		if score < best_tree[1]:
 			best_tree = (i, score)
+	print('Best tree: ' + str(trees[best_tree[0]]))
 	return trees[best_tree[0]]
 
 def is_complete(X, y, winning_trees, threshold):
