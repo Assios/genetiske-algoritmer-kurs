@@ -31,7 +31,7 @@ def fitness(string, target):
 def mutate(copies):
 	for i in range(len(copies)):
 		for j in range(len(copies[i])):
-			if random.random() < 0.00001:
+			if random.random() < 0.05:
 				new_gene = characters[random.randint(0, len(characters)-1)]
 				s = list(copies[i])
 				s[j] = new_gene
@@ -48,9 +48,9 @@ def fittest(copies, target):
         score = fitness(copy, target)
         if score > best_score:
             best_score = score
-            best_string = copy                            
+            best_string = copy
 
-    return best_string     
+    return best_string
 
 
 def main():
