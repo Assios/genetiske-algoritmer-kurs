@@ -121,7 +121,7 @@ def symreg(X, y, variables, population_size, max_generations, error_threshold):
 	return run_tournament(X, y, trees) # Returnerer den beste av løsningene som nå ligger i trees
 
 if __name__ == '__main__':
-	# Genererer data for y = x^2
+	# Genererer data for y = x^2 + z
 	variables = ['x', 'z']
 	X = {'x': [-5 + 0.1*k for k in range(100)], 'z': [3 + 0.2*k for k in range(100)]}
 	y = [row[0]*row[0] + row[1] for row in zip(*X.values())]
